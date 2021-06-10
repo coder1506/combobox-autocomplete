@@ -1,0 +1,92 @@
+.combobox-container{
+    width: 250px;
+    height: 40px;
+    margin: auto;
+    position: relative;
+    user-select: none;
+}
+.selected {
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: 1px solid  rgba(214, 207, 207, 0.938);
+    border-radius: 5px;
+    padding-left: 10px;
+}
+.border-forcus{
+    border: 1px solid rgba(63, 219, 128, 0.938) !important;
+}
+.dropdow-button{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-left: 1px solid  rgba(214, 207, 207, 0.938);
+}
+.select{
+    position: absolute;
+    border: 1px solid rgba(214, 207, 207, 0.938);
+    width: 100%;
+    margin-top: 5px;
+    transform-origin: 0 0;  
+    animation: 0.4s dropdown-menu forwards;
+}
+.select .option{
+    padding: 5px 10px;
+    height: 40px;
+    display: flex;  
+    align-items: center ;
+}
+.select .option:hover{
+    background-color:rgba(63, 219, 128, 0.938);
+    transition: 0.4s;
+    color: white;
+}
+.isselected{
+    background-color:rgba(12, 165, 73, 0.938);
+    color: white;
+}
+.rotate{
+    animation: 0.4s rotate180 forwards;
+}
+.dropdown-icon{
+    background-image: url("../assets/dropdown-icon.svg");
+    position: absolute;
+    top: 50%;
+    width: 13px;
+    height: 13px;
+    right: 50%;
+    transform: translate(50%,-50%);
+    filter: invert(42%) sepia(93%) saturate(12%) hue-rotate(87deg) brightness(119%) contrast(119%);
+}
+.border-forcus .dropdown-icon{
+    filter: invert(42%) sepia(93%) saturate(1200%) hue-rotate(87deg) brightness(119%) contrast(119%);
+}
+.selected-icon{
+    background-image:url("../assets/selected-icon.svg");
+    width: 13px;
+    height: 13px;
+    margin-right: 15px;
+    display: none;
+    filter:white;
+}
+.isselected>.selected-icon{
+    display: inline;
+}
+@keyframes rotate180 {
+    0%{
+        transform:translate(50%,-50%) rotate(0);
+    }
+    100%{
+        transform:translate(50%,-50%) rotate(180deg) ;
+    }
+}
+@keyframes dropdown-menu {
+    0% {
+        transform:rotate3d(1,0,0,90deg)
+    }
+    100%{
+        transform:rotate3d(0,0,0,0deg)
+    }
+}
