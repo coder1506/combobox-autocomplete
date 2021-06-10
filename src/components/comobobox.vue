@@ -1,5 +1,5 @@
 <template>
-    <div class="combobox-container" v-on:keyup.40="arrowDown()" v-on:keyup.38="arrowUp()" v-on:keyup.13="enter()" @click="focus()">
+    <div :class="isWarning ? 'combobox-container border-warning' : 'combobox-container'" v-on:keyup.40="arrowDown()" v-on:keyup.38="arrowUp()" v-on:keyup.13="enter()" @click="focus()">
         <input type="text" :class="isFocus ? 'selected border-forcus' : 'selected'" v-model="keySelected" v-on:keyup="autocomplete()" ref="inputcombobox">
         <div class="select" v-if="isActived">
             <div class="option" v-for="(item,index) in itemsInFilter" :key="index" :class="index == indexSelected ? 'isselected' : ''" @click="enter(index)">
@@ -22,7 +22,8 @@ export default {
       indexHover: 0,
       keyfilter: '',
       isFocus: false,
-      indexSelected: 0
+      indexSelected: 0,
+      isWarning: false
     }
   },
   methods: {
@@ -32,6 +33,8 @@ export default {
       if (this.isActived) { this.isActived = false } else this.isActived = true
     },
     autocomplete () {
+      if (this.itemsInFilter.length === 0) this.isWarning = true
+      if (this.itemsInFilter.length > 0) this.isWarning = false
       if (this.keySelected === '' || this.keySelected === this.itemSelected.text) return
       if (this.itemsInFilter.length > 0) {
         this.isActived = true

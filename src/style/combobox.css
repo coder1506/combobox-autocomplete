@@ -16,6 +16,9 @@
 .border-forcus{
     border: 1px solid rgba(63, 219, 128, 0.938) !important;
 }
+.border-warning .border-forcus{
+    border: 1px solid rgba(219, 63, 71, 0.938) !important;
+}
 .dropdow-button{
     width: 40px;
     height: 40px;
